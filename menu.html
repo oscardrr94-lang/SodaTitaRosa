@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="lang-es">Soda Tita Rosa - Menú Digital Completo</title>
+    <title class="lang-en">Soda Tita Rosa - Full Digital Menu</title>
+    <style>
+        /* Estilos Integrados */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amarillo-principal: #FDB913;
+            --cafe:  #8B4513;
+            --verde-oscuro: #2D5016;
+            --crema: #FFF8DC;
+            /* Colores redes sociales */
+            --whatsapp: #25D366;
+            --instagram: #E4405F;
+            --waze: #33CCFF;
+            --google: #4285F4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--amarillo-principal) 0%, #FFD700 100%);
+            text-align: center;
+            padding: 1rem 1rem; 
+            box-shadow:  0 4px 6px rgba(0,0,0,0.1);
+            position: relative; 
+            z-index: 100;
+        }
+        
+        .language-toggle-container {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .language-button {
+            background-color: var(--cafe);
+            color: white;
+            border: 2px solid white;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-button:hover {
+            background-color: var(--verde-oscuro);
+        }
+
+        .logo-container {
+            max-width:  120px; 
+            margin: 0 auto 0.5rem;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%; 
+            border: 4px solid white; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+        }
+
+        header h1 {
+            font-size: 1.8rem; 
+            color: var(--cafe);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            display: block; 
+            margin-bottom: 0; 
+        }
+
+        header p {
+            font-size:  1rem; 
+            color: var(--verde-oscuro);
+            font-style: italic;
+            display: block; 
+            /* ESPACIO EN EL ENCABEZADO */
+            margin-top: 1.5rem; 
+        }
+
+        /* Navegación */
+        nav {
+            background-color: var(--cafe);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 999; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background-color: var(--amarillo-principal);
+            color: var(--cafe);
+            transform: translateY(-2px);
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Secciones del menú */
+        .menu-section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow:  0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu-section h2 {
+            color: var(--cafe);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--amarillo-principal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Grid de platillos */
+        .platillos-grid {
+            display:  grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .platillo-card {
+            background: var(--crema);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--amarillo-principal);
+        }
+
+        .platillo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .platillo-card h3 {
+            color: var(--cafe);
+            font-size: 1.3rem;
+            margin-bottom:  0.3rem; 
+            display: block; 
+        }
+
+        .platillo-card p {
+            color: #555;
+            margin-top: 0.5rem; 
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .precio {
+            display: block; 
+            text-align: left;
+            font-size: 1.3rem;
+            font-weight:  bold;
+            color: var(--verde-oscuro);
+            margin-top: 0.5rem;
+            margin-left: 0; 
+        }
+
+        /* Footer Actualizado */
+        footer {
+            background-color: var(--cafe);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem 5rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer h3 {
+            color: var(--amarillo-principal);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin:  0.5rem 0;
+        }
+
+        /* Iconos sociales */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Colores hover */
+        .social-icon.instagram:hover svg path { fill: var(--instagram); }
+        .social-icon.waze:hover svg path { fill: var(--waze); }
+        .social-icon.google:hover svg path { fill: var(--google); }
+
+        /* Botón Flotante WhatsApp */
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-whatsapp svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Botón volver arriba */
+        .btn-top {
+            position: fixed;
+            bottom: 100px;
+            right: 35px;
+            background-color: var(--amarillo-principal);
+            color: var(--cafe);
+            border:  none;
+            border-radius:  50%;
+            width: 40px; 
+            height: 40px;
+            font-size:  1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .btn-top:hover {
+            background-color: var(--cafe);
+            color:  var(--amarillo-principal);
+            transform: translateY(-3px);
+        }
+
+        .btn-top.show {
+            display: block;
+        }
+        
+        .lang-en { display: none; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            header p { font-size: 1rem; }
+            .menu-section h2 { font-size: 1.5rem; }
+            .platillos-grid { grid-template-columns: 1fr; }
+            nav ul { flex-direction:  column; align-items: center; }
+            nav a { padding: 0.5rem 1rem; font-size: 1rem; }
+            .language-toggle-container { position: static; margin-top: 10px; }
+            .btn-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .btn-top { bottom: 85px; right: 28px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform:  translateY(20px); }
+            to { opacity: 1; transform:  translateY(0); }
+        }
+        .menu-section { animation: fadeIn 0.6s ease-out; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="language-toggle-container">
+            <button class="language-button" id="languageToggle" onclick="toggleLanguage()">
+                <span class="lang-es">English</span>
+                <span class="lang-en">Español</span>
+            </button>
+        </div>
+        
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo Soda Tita Rosa - Costa Rican Food">
+        </div>
+        
+        <h1 class="lang-es">Soda Tita Rosa</h1>
+        <h1 class="lang-en">Soda Tita Rosa</h1><div ></div>
+        <p class="lang-es">Auténtica Comida Costarricense</p>
+        <p class="lang-en">Authentic Costa Rican Food</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#desayunos"><span class="lang-es">🌅 Desayunos</span><span class="lang-en">🌅 Breakfast</span></a></li>
+            <li><a href="#casados"><span class="lang-es">🍽️ Casados</span><span class="lang-en">🍽️ Casados</span></a></li>
+            <li><a href="#rapidas"><span class="lang-es">🍔 Comidas Rápidas</span><span class="lang-en">🍔 Fast Food</span></a></li>
+            <li><a href="#especialidades"><span class="lang-es">⭐ Especialidades</span><span class="lang-en">⭐ Specialties</span></a></li>
+            <li><a href="#ensaladas"><span class="lang-es">🥗 Ensaladas</span><span class="lang-en">🥗 Salads</span></a></li>
+            <li><a href="#bebidas"><span class="lang-es">🥤 Bebidas</span><span class="lang-en">🥤 Drinks</span></a></li>
+            <li><a href="#postres"><span class="lang-es">🍰 Postres</span><span class="lang-en">🍰 Desserts</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <section id="desayunos" class="menu-section">
+            <h2 class="lang-es">🌅 Desayunos Ticos</h2>
+            <h2 class="lang-en">🌅 Tico Breakfast</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍳 Gallo Pinto Tradicional</h3>
+                    <h3 class="lang-en">🍳 Traditional Gallo Pinto</h3><div ></div>
+                    <p class="lang-es">Arroz y frijoles salteados, huevo al gusto, queso y natilla. Acompañado con tortillas</p>
+                    <p class="lang-en">Sautéed rice and beans, egg (cooked to your liking), cheese, and sour cream. Served with tortillas.</p>
+                    <span class="precio">₡3,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥩 Gallo Pinto con Carne</h3>
+                    <h3 class="lang-en">🥩 Gallo Pinto with Meat</h3><div ></div>
+                    <p class="lang-es">Delicioso gallo pinto con carne en salsa, huevo, queso y natilla</p>
+                    <p class="lang-en">Delicious Gallo Pinto with meat in sauce, egg, cheese, and sour cream.</p>
+                    <span class="precio">₡4,200</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥞 Pancakes con Fruta</h3>
+                    <h3 class="lang-en">🥞 Pancakes with Fruit</h3><div ></div>
+                    <p class="lang-es">Esponjosos pancakes con frutas frescas de temporada y miel natural</p>
+                    <p class="lang-en">Fluffy pancakes with fresh seasonal fruits and natural honey.</p>
+                    <span class="precio">₡3,800</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🌯 Desayuno Campesino</h3>
+                    <h3 class="lang-en">🌯 Farmer's Breakfast</h3><div ></div>
+                    <p class="lang-es">Huevos revueltos con tomate y cebolla, frijoles molidos, queso y plátano maduro</p>
+                    <p class="lang-en">Scrambled eggs with tomato and onion, refried beans, cheese, and ripe plantain.</p>
+                    <span class="precio">₡3,200</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍳 Huevos Rancheros</h3>
+                    <h3 class="lang-en">🍳 Ranch Style Eggs</h3><div ></div>
+                    <p class="lang-es">Huevos con salsa criolla, frijoles, arroz blanco y aguacate</p>
+                    <p class="lang-en">Eggs with criolla sauce, beans, white rice, and avocado.</p>
+                    <span class="precio">₡3,600</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">☕ Café con Leche y Pan</h3>
+                    <h3 class="lang-en">☕ Coffee with Milk and Bread</h3><div ></div>
+                    <p class="lang-es">Café costarricense con leche caliente y pan dulce casero</p>
+                    <p class="lang-en">Costa Rican coffee with hot milk and homemade sweet bread.</p>
+                    <span class="precio">₡2,000</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="casados" class="menu-section">
+            <h2 class="lang-es">🍽️ Casados Tradicionales</h2>
+            <h2 class="lang-en">🍽️ Traditional Casados</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍛 Casado Tradicional</h3>
+                    <h3 class="lang-en">🍛 Traditional Casado</h3><div ></div>
+                    <p class="lang-es">Incluye: Arroz, frijoles, plátano maduro, lechuga, chimichurri y queso local o huevo frito.</p>
+                    <p class="lang-en">Includes: Rice, beans, ripe plantain, lettuce, chimichurri, and local cheese or fried egg.</p>
+                    <p style="font-weight: bold; margin-top: 0.5rem; color: var(--verde-oscuro);"><span class="lang-es">Opciones a la plancha: Chuleta de cerdo, pechuga de pollo, bistec de lomo de res o filet de tilapia al ajillo. O con vegetales salteados.</span> <span class="lang-en">Grilled options: Pork chop, chicken breast, beef loin steak, or Tilapia fillet in garlic sauce. Or sautéed veggies.</span></p>
+                    <span class="precio">₡5,500</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="rapidas" class="menu-section">
+            <h2 class="lang-es">🍔 Comidas Rápidas Estilo Tico</h2>
+            <h2 class="lang-en">🍔 Tico-Style Fast Food</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <h3 class="lang-es">🌮 TACO TICO</h3>
+                    <h3 class="lang-en">🌮 TICO TACO</h3><div ></div>
+                    <p class="lang-es">Rollito de tortilla crujiente relleno de carne mechada o pollo mechado con repollo, ketchup y mayonesa. Servido con papas fritas.</p>
+                    <p class="lang-en">Crispy rolled corn tortilla stuffed with shredded beef or chicken, topped with cabbage, ketchup, and homemade mayo. Served with fries.</p>
+                    <span class="precio">₡4,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🌮 DOBLE TACO TICO</h3>
+                    <h3 class="lang-en">🌮 DOUBLE TICO TACO</h3><div ></div>
+                    <p class="lang-es">Dos Tacos, doble sabor.</p>
+                    <p class="lang-en">Two tacos, double tasty.</p>
+                    <span class="precio">₡6,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🦐 TACO TICO DE CAMARÓN</h3>
+                    <h3 class="lang-en">🦐 SHRIMP TICO TACO</h3><div ></div>
+                    <p class="lang-es">Taco Tico con camarones.</p>
+                    <p class="lang-en">Tico Taco topped with cabbage, ketchup and mayo.</p>
+                    <span class="precio">₡5,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍟 NACHOS</h3>
+                    <h3 class="lang-en">🍟 NACHOS</h3><div ></div>
+                    <p class="lang-es">Tortillas de maíz, quesos cheddar y mozzarella, chimichurri, frijoles molidos y su escogencia de carne mechada, pollo mechado o vegetales.</p>
+                    <p class="lang-en">Corn tortillas, cheddar and mozzarella cheese, chimichurri, refried beans, and your choice of pulled beef, shredded chicken, or veggies.</p>
+                    <span class="precio">₡4,000</span>
+                </div>
+                 <div class="platillo-card">
+                    <h3 class="lang-es">🍔 TICA BURGER</h3>
+                    <h3 class="lang-en">🍔 TICA BURGER</h3><div ></div>
+                    <p class="lang-es">Torta casera de carne con pan, jamón y tocineta, queso cheddar, lechuga, tomate, mayonesa de la casa y ketchup. Servida con papas.</p>
+                    <p class="lang-en">Homemade beef patty with bun, ham and bacon, cheddar cheese, lettuce, tomato, homemade mayo and ketchup. Served with fries.</p>
+                    <span class="precio">₡4,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍔 TITAS BURGER</h3>
+                    <h3 class="lang-en">🍔 TITAS BURGER</h3><div ></div>
+                    <p class="lang-es">Torta casera de carne y carne mechada con pan, jamón y tocineta, queso cheddar, lechuga, tomate, mayonesa de la casa y ketchup. Servida con papas.</p>
+                    <p class="lang-en">Homemade beef patty and pulled beef with bun, ham and bacon, cheddar cheese, lettuce, tomato, homemade mayo and ketchup. Served with fries.</p>
+                    <span class="precio">₡5,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🌯 TICO BURRITO</h3>
+                    <h3 class="lang-en">🌯 TICO BURRITO</h3><div ></div>
+                    <p class="lang-es">Tortilla de trigo, frijoles molidos, quesos cheddar y mozzarella, su escogencia de carne mechada, pollo mechado o vegetales. Servido con lechuga, chimichurri y papas fritas.</p>
+                    <p class="lang-en">Flour tortilla, Refried beans, cheddar and mozzarella cheese, your choice of pulled beef, shredded chicken, or veggies. Served with lettuce, chimichurri, and fries.</p>
+                    <span class="precio">₡3,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥟 EMPANADA ARREGLADA</h3>
+                    <h3 class="lang-en">🥟 EMPANADA ARREGLADA</h3><div ></div>
+                    <p class="lang-es">Empanada casera rellena a escoger (carne mechada, pollo, queso o frijoles), guarnecida con repollo, ketchup y mayonesa.</p>
+                    <p class="lang-en">Homemade empanada stuffed with your choice of shredded beef, chicken, cheese, or refried beans, topped with cabbage, ketchup and mayo.</p>
+                    <span class="precio">₡2,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥔 PATACONES</h3>
+                    <h3 class="lang-en">🥔 PATACONES</h3><div ></div>
+                    <p class="lang-es">Plátano verde crujiente y su escogencia de carne mechada, pollo mechado o vegetales. Acompañados con frijoles molidos, queso fresco y chimichurri.</p>
+                    <p class="lang-en">Smashed crunchy green plantain and your choice of shredded beef, shredded chicken or veggies. With sides of refried beans, fresh cheese, and chimichurri.</p>
+                    <span class="precio">₡4,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🧀 QUESADILLA</h3>
+                    <h3 class="lang-en">🧀 QUESADILLA</h3><div ></div>
+                    <p class="lang-es">Tortilla de harina, quesos cheddar y mozzarella, a escoger carne mechada, pollo mechado o vegetales. Servido con lechuga, chimichurri y papas.</p>
+                    <p class="lang-en">Flour tortilla, cheddar and mozzarella cheese, your choice of pulled beef or chicken or veggies. Served with lettuce, chimichurri, and fries.</p>
+                    <span class="precio">₡3,500</span>
+                </div>
+                 <div class="platillo-card">
+                    <h3 class="lang-es">🥖 HOT DOG</h3>
+                    <h3 class="lang-en">🥖 HOT DOG</h3><div ></div>
+                    <p class="lang-es">Servido con repollo, papas, ketchup y mayonesa de la casa.</p>
+                    <p class="lang-en">Served with cabbage and fries, ketchup, and homemade mayo.</p>
+                    <span class="precio">₡2,500</span>
+                </div>
+                 <div class="platillo-card">
+                    <h3 class="lang-es">🍟 SALCHIPAPAS</h3>
+                    <h3 class="lang-en">🍟 SALCHIPAPAS</h3><div ></div>
+                    <p class="lang-es">Papas fritas con trocitos de salchichas con topping de ketchup y mayonesa de la casa.</p>
+                    <p class="lang-en">French fries and sausages bites, topped with ketchup and homemade mayo.</p>
+                    <span class="precio">₡3,000</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="especialidades" class="menu-section">
+            <h2 class="lang-es">⭐ Especialidades de la Casa</h2>
+            <h2 class="lang-en">⭐ House Specialties</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍚 ARROZ CON POLLO</h3>
+                    <h3 class="lang-en">🍚 RICE WITH CHICKEN</h3><div ></div>
+                    <p class="lang-es">Arroz salteado con pollo mechado, zanahoria, chile dulce, cebolla, achiote, salsa Lizano. Servido con lechuga, chimichurri y papas fritas.</p>
+                    <p class="lang-en">Sautéed rice with shredded chicken, carrots, bell pepper, onions, achiote, salsa Lizano. Served with lettuce, chimichurri, and fries.</p>
+                    <span class="precio">₡4,500</span>
+                </div>
+                 <div class="platillo-card">
+                    <h3 class="lang-es">🍤 ARROZ CON CAMARONES</h3>
+                    <h3 class="lang-en">🍤 RICE WITH SHRIMP</h3><div ></div>
+                    <p class="lang-es">Arroz salteado con camarones, ajo, vino blanco, zanahoria, chile dulce, cebolla, achiote, salsa Lizano. Servido con lechuga, chimichurri y papas fritas.</p>
+                    <p class="lang-en">Sautéed rice with shrimp, garlic, white wine, carrots, bell pepper, onions, achiote, salsa Lizano. Served with lettuce, chimichurri, and fries.</p>
+                    <span class="precio">₡5,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥦 ARROZ A LA JARDINERA</h3>
+                    <h3 class="lang-en">🥦 GARDENER'S RICE</h3><div ></div>
+                    <p class="lang-es">Arroz salteado con brócoli, zanahoria, chile dulce, cebolla, apio, achiote, salsa Lizano. Servido con lechuga, chimichurri y papas fritas.</p>
+                    <p class="lang-en">Sautéed rice with broccoli, carrots, bell pepper, onions, celery, achiote, salsa Lizano. Served with lettuce, chimichurri, and fries.</p>
+                    <span class="precio">₡4,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🔥 FAJITAS DE TITA</h3>
+                    <h3 class="lang-en">🔥 TITA'S FAJITAS</h3><div ></div>
+                    <p class="lang-es">Fajitas de lomo de res o de pollo salteadas con cebolla y chile dulce, servidas sobre una cama de lechuga y tomate fresco. Acompañadas con papas fritas bañadas con mozzarella y trocitos de tocineta.</p>
+                    <p class="lang-en">Beef loin or chicken breast fajitas sautéed with onions and bell pepper. Served over lettuce and fresh tomato. Fries topped with melted mozzarella and bacon bits.</p>
+                    <span class="precio">₡5,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍲 SOPA DE LA CASA</h3>
+                    <h3 class="lang-en">🍲 SOUP OF THE HOUSE</h3><div ></div>
+                    <p class="lang-es">Caldo de res, carne mechada y vegetales. Servida con arroz y tortillas tostadas.</p>
+                    <p class="lang-en">Beef broth, pulled beef, and veggies. Served with rice and tortilla chips.</p>
+                    <span class="precio">₡3,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🐖 CERDO A LA PARRILLA</h3>
+                    <h3 class="lang-en">🐖 GRILLED PORK</h3><div ></div>
+                    <p class="lang-es">Cerdo a la parrilla con chips de plátano, repollo y tomate.</p>
+                    <p class="lang-en">Grilled pork meat with plantain chips, cabbage, and tomato.</p>
+                    <span class="precio">₡4,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥓 CHICHARRONES</h3>
+                    <h3 class="lang-en">🥓 FRIED PORK BITES</h3><div ></div>
+                    <p class="lang-es">Trocitos de cerdo fritos con chips de plátano, repollo y tomate.</p>
+                    <p class="lang-en">Fried pork bites with plantain chips, cabbage and tomato.</p>
+                    <span class="precio">₡4,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍚 TORTILLA TITA ROSA</h3>
+                    <h3 class="lang-en">🍚 TITA ROSA TORTILLA</h3><div ></div>
+                    <p class="lang-es">Masa especial con queso fresco extra.</p>
+                    <p class="lang-en">Special dough with extra fresh cheese.</p>
+                    <span class="precio">₡2,500</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ensaladas" class="menu-section">
+            <h2 class="lang-es">🥗 Ensaladas Frescas</h2>
+            <h2 class="lang-en">🥗 Fresh Salads</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥬 ENSALADA DE LA CASA</h3>
+                    <h3 class="lang-en">🥬 HOUSE SALAD</h3><div ></div>
+                    <p class="lang-es">Mezcla de lechuga, tomate, repollo, zanahoria, cebolla, chile dulce, queso fresco, con vinagreta de la casa.</p>
+                    <p class="lang-en">Mix lettuce, tomato, cabbage, carrots, onions, bell peper, fresh local cheese, and homemade vinaigrette.</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;"><span class="lang-es">Extras Opcionales: Pollo a la plancha o fajitas de res (₡2,000) o Camarones salteados (₡2,500).</span> <span class="lang-en">Optional Extras: Grilled chicken or beef fajitas (₡2,000) or Sautéed shrimp (₡2,500).</span></p>
+                    <span class="precio">₡3,000</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍍 ENSALADA TROPICAL</h3>
+                    <h3 class="lang-en">🍍 TROPICAL SALAD</h3><div ></div>
+                    <p class="lang-es">Mezcla de lechuga, piña, maní, queso fresco y vinagreta de guayaba.</p>
+                    <p class="lang-en">Lettuce, pineapple, peanuts, fresh cheese, and guava vinaigrette.</p>
+                     <p style="font-size: 0.9rem; margin-top: 0.5rem;"><span class="lang-es">Extras Opcionales: Pollo a la plancha o fajitas de res (₡2,000) o Camarones salteados (₡2,500).</span> <span class="lang-en">Optional Extras: Grilled chicken or beef fajitas (₡2,000) o Sautéed shrimp (₡2,500).</span></p>
+                    <span class="precio">₡3,500</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="bebidas" class="menu-section">
+            <h2 class="lang-es">🥤 Bebidas Refrescantes</h2>
+            <h2 class="lang-en">🥤 Refreshing Drinks</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍹 FRESCOS NATURALES (600 ML)</h3>
+                    <h3 class="lang-en">🍹 TRADITIONAL NATURAL DRINKS (600 ML)</h3><div ></div>
+                    <p class="lang-es">Piña con Arroz, Tamarindo, Chan-Chía, Jugo de mango.</p>
+                    <p class="lang-en">Pineapple and Rice, Tamarindo, Chan & Chia seeds, Natural Mango Juice.</p>
+                    <span class="precio">₡1,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥤 REFRESCOS EMBOTELLADOS (600 ML)</h3>
+                    <h3 class="lang-en">🥤 SOFT BOTTLED DRINKS (600 ML)</h3><div ></div>
+                    <p class="lang-es">Agua (Water), Coca Cola, Coca Cola Zero, Ginger Ale, Fanta, Sprite, Club Soda, Te Frío (Iced Tea) 500 ml.</p>
+                    <p class="lang-en">Water, Coca Cola, Coca Cola Zero, Ginger Ale, Fanta, Sprite, Club Soda, Iced Tea 500 ml.</p>
+                    <span class="precio">₡1,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🥤 OTROS REFRESCOS</h3>
+                    <h3 class="lang-en">🥤 OTHER BOTTLED DRINKS</h3><div ></div>
+                    <p class="lang-es">Coca Cola 354ml (12 oz), Jugos en lata 330 ml: manzana, mango, mango y fresa.</p>
+                    <p class="lang-en">Coca Cola 354ml (12 oz), Juices in a can 330 ml: apple, mango, mango & strawberry.</p>
+                    <span class="precio">₡1,000</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="postres" class="menu-section">
+            <h2 class="lang-es">🍰 Postres Típicos</h2>
+            <h2 class="lang-en">🍰 Typical Desserts</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍰 CHEESECAKE DE LIBEYDI</h3>
+                    <h3 class="lang-en">🍰 LIBEYDI'S CHEESECAKE</h3><div ></div>
+                    <p class="lang-es">Cheesecake de maracuyá y hecho en casa por la hija de Tita.</p>
+                    <p class="lang-en">Tita's daughter's Passion Fruit Cheesecake.</p>
+                    <span class="precio">₡2,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍮 ARROZ CON LECHE</h3>
+                    <h3 class="lang-en">🍮 RICE PUDDING</h3><div ></div>
+                    <p class="lang-es">Postre tradicional de arroz con leche.</p>
+                    <p class="lang-en">Traditional rice pudding dessert.</p>
+                    <span class="precio">₡1,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍧 GELATINA DE COLORES</h3>
+                    <h3 class="lang-en">🍧 GELATINE CUP</h3><div ></div>
+                    <p class="lang-es">Vasito de gelatina de sabores.</p>
+                    <p class="lang-en">Mixed colors and flavors gelatin cup.</p>
+                    <span class="precio">₡1,500</span>
+                </div>
+                <div class="platillo-card">
+                    <h3 class="lang-es">🍦 HELADOS</h3>
+                    <h3 class="lang-en">🍦 ICE CREAM</h3><div ></div>
+                    <p class="lang-es">Pregunte por nuestras opciones de helados.</p>
+                    <p class="lang-en">Ask for our ice cream options.</p>
+                    <span class="precio">Consultar</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <h3 class="lang-es">Soda Tita Rosa</h3>
+        <h3 class="lang-en">Soda Tita Rosa</h3>
+        
+        <div class="social-icons">
+            
+            <a href="https://www.instagram.com/sodatitarosa?igsh=MTlmMDZia2J4eGFwYg==" class="social-icon instagram" title="Instagram" target="_blank">
+                <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.64-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.27.2-6.78 2.71-6.98 6.98C.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.27 2.71 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07 3.26 0 3.67-.01 4.95-.07 4.27-.2 6.78-2.71 6.98-6.98.06-1.28.07-1.69.07-4.95 0-3.26-.01-3.67-.07-4.95-.2-4.27-2.71-6.78-6.98-6.98C15.67.01 15.26 0 12 0z"/><path fill="#333" d="M12 5.84c-3.4 0-6.16 2.76-6.16 6.16s2.76 6.16 6.16 6.16 6.16-2.76 6.16-6.16-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/><circle fill="#333" cx="18.41" cy="5.59" r="1.44"/></svg>
+            </a>
+            <a href="#" class="social-icon waze" title="Ubicación" target="_blank">
+                <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </a>
+            <a href="https://g.page/r/CZE1rQ05TjVLEAE/review" class="social-icon google" title="Califícanos en Google" target="_blank">
+                <svg viewBox="0 0 24 24"><path fill="#333" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .533 5.333.533 12S5.867 24 12.48 24c3.44 0 6.013-1.133 8.053-3.24 2.14-2.16 2.773-5.2 2.773-7.84 0-.76-.067-1.467-.187-2l-10.64-.001z"/></svg>
+            </a>
+        </div>
+
+        <p class="lang-es">📍 Dirección: La Fortuna de San Carlos, Z13</p>
+        <p class="lang-en">📍 Address: La Fortuna de San Carlos, Z13</p>
+        <p class="lang-es">📞 Teléfono: 63706151 / 44193832</p>
+        <p class="lang-en">📞 Phone: 63706151 / 44193832</p>
+        <p class="lang-es">⏰ Horario: Lunes a Domingo - 10:00 AM a 8:45 PM</p>
+        <p class="lang-en">⏰ Hours: Monday to Sunday - 10:00 AM to 8:45 PM</p><div ></div>
+        <p class="lang-es">🇨🇷 Auténtica comida costarricense con el sazón de casa</p>
+        <p class="lang-en">🇨🇷 Authentic Costa Rican food with a homemade flavor</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><span class="lang-es">© 2025 Soda Tita Rosa - Todos los derechos reservados</span><span class="lang-en">© 2025 Soda Tita Rosa - All rights reserved</span></p>
+    </footer>
+
+    <a href="https://wa.me/50663706151" class="btn-whatsapp" target="_blank" title="Chat en WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.05 20.21c-1.5 0-2.97-.39-4.27-1.14l-.3-.18-3.11.82.83-3.03-.19-.31c-.82-1.33-1.26-2.87-1.26-4.46 0-4.64 3.77-8.41 8.41-8.41 2.25 0 4.36.88 5.95 2.47 1.59 1.59 2.47 3.7 2.47 5.95 0 4.64-3.77 8.41-8.41 8.41h-.12zm4.61-6.31c-.25-.13-1.49-.74-1.72-.82-.23-.08-.39-.13-.56.13-.17.25-.66.82-.81 1-.15.17-.3.19-.55.07-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.3.37-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.25.91 2.45 1.04 2.62.13.17 1.78 2.72 4.32 3.82.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.48-.07 1.49-.61 1.7-1.2.21-.6.21-1.11.15-1.21-.06-.1-.23-.16-.48-.28z"/></svg>
+    </a>
+
+    <button class="btn-top" id="btnTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        const ES_SELECTOR = '.lang-es';
+        const EN_SELECTOR = '.lang-en';
+        const LANGUAGE_KEY = 'menuLang';
+
+        // Función principal para cambiar la visibilidad de los elementos
+        function setLanguage(lang) {
+            if (lang === 'en') {
+                document.querySelectorAll(ES_SELECTOR).forEach(el => el.style.display = 'none');
+                document.querySelectorAll(EN_SELECTOR).forEach(el => el.style.display = 'inline'); 
+                document.documentElement.lang = 'en';
+                document.getElementById('languageToggle').textContent = 'Español'; 
+                document.getElementById('languageToggle').title = 'Change to Spanish';
+            } else {
+                document.querySelectorAll(EN_SELECTOR).forEach(el => el.style.display = 'none');
+                document.querySelectorAll(ES_SELECTOR).forEach(el => el.style.display = 'inline');
+                document.documentElement.lang = 'es';
+                document.getElementById('languageToggle').textContent = 'English'; 
+                document.getElementById('languageToggle').title = 'Cambiar a Inglés';
+            }
+        }
+
+        // Función para alternar el idioma
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang === 'es' ? 'en' : 'es';
+            localStorage.setItem(LANGUAGE_KEY, currentLang);
+            setLanguage(currentLang);
+            // Asegura que la navegación se mantenga visible después del cambio
+            window.scrollTo({
+                top: document.querySelector('nav').offsetTop,
+                behavior: 'smooth'
+            }); 
+        }
+
+        // Cargar idioma al inicio y manejar el scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem(LANGUAGE_KEY) || 'es';
+            setLanguage(savedLang);
+
+            // Botón volver arriba
+            window.onscroll = function() {
+                const btnTop = document.getElementById('btnTop');
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    btnTop.classList.add('show');
+                } else {
+                    btnTop.classList.remove('show');
+                }
+            };
+
+            // Smooth scroll para navegación (Asegura el desplazamiento correcto bajo la barra fija)
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    // El desplazamiento debe ir un poco más arriba de la barra de navegación para que el título no quede tapado
+                    const targetPosition = target.offsetTop - navHeight - 10;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
