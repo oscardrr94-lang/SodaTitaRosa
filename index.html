@@ -33,16 +33,21 @@
             background-color: #f9f9f9;
         }
 
-        /* Header */
+        /* --- SISTEMA DE IDIOMAS (BLINDADO) --- */
+        /* Ocultamos el idioma que no se usa */
+        body.es .lang-en { display: none !important; }
+        body.en .lang-es { display: none !important; }
+
+        /* Header Ajustado (Más compacto) */
         header {
             background: linear-gradient(135deg, var(--amarillo-principal) 0%, #FFD700 100%);
             text-align: center;
-            padding: 1rem 1rem; 
+            padding: 0.5rem 1rem;
             box-shadow:  0 4px 6px rgba(0,0,0,0.1);
-            position: relative; 
+            position: relative;
             z-index: 100;
         }
-        
+
         .language-toggle-container {
             position: absolute;
             top: 10px;
@@ -53,10 +58,11 @@
             background-color: var(--cafe);
             color: white;
             border: 2px solid white;
-            padding: 8px 12px;
+            padding: 5px 10px;
             cursor: pointer;
             border-radius: 8px;
             font-weight: bold;
+            font-size: 0.85rem;
             transition: background-color 0.3s ease;
         }
 
@@ -65,42 +71,43 @@
         }
 
         .logo-container {
-            max-width:  120px; 
-            margin: 0 auto 0.5rem;
+            max-width:  100px;
+            margin: 0.5rem auto 0.2rem;
         }
 
         .logo-container img {
             width: 100%;
             height: auto;
-            border-radius: 50%; 
-            border: 4px solid white; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         header h1 {
-            font-size: 1.8rem; 
+            font-size: 1.6rem;
             color: var(--cafe);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            display: block; 
-            margin-bottom: 0; 
+            display: block;
+            margin-bottom: 0;
+            line-height: 1.2;
         }
 
         header p {
-            font-size:  1rem; 
+            font-size:  0.95rem;
             color: var(--verde-oscuro);
             font-style: italic;
-            display: block; 
-            /* ESPACIO EN EL ENCABEZADO */
-            margin-top: 1.5rem; 
+            display: block;
+            margin-top: 0.2rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Navegación */
         nav {
             background-color: var(--cafe);
-            padding: 1rem;
+            padding: 0.8rem;
             position: sticky;
             top: 0;
-            z-index: 999; 
+            z-index: 999;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -109,13 +116,13 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 25px;
             transition: all 0.3s ease;
             font-weight: bold;
@@ -176,46 +183,47 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
+        /* CORRECCIÓN FUERTE PARA QUE NO SE PEGUEN LOS TEXTOS */
         .platillo-card h3 {
             color: var(--cafe);
             font-size: 1.3rem;
-            margin-bottom:  0.3rem; 
-            display: block; 
+            margin-bottom:  0.8rem !important; /* Fuerza el espacio */
+            display: block !important; /* Fuerza que ocupe su propia línea */
+            width: 100%;
         }
 
         .platillo-card p {
             color: #555;
-            margin-top: 0.5rem; 
+            margin-top: 0.5rem;
             margin-bottom: 0.8rem;
             font-size: 0.95rem;
+            display: block !important; /* Fuerza que ocupe su propia línea */
         }
 
         .precio {
-            display: block; 
+            display: block;
             text-align: left;
             font-size: 1.3rem;
             font-weight:  bold;
             color: var(--verde-oscuro);
             margin-top: 0.5rem;
-            margin-left: 0; 
+            margin-left: 0;
         }
 
-        /* Footer Actualizado */
+        /* Footer Actualizado y Estético */
         footer {
             background-color: var(--cafe);
             color: white;
             text-align: center;
             padding: 2rem 1rem 5rem 1rem;
             margin-top: 3rem;
+            font-size: 0.95rem;
         }
 
         footer h3 {
             color: var(--amarillo-principal);
             margin-bottom: 1rem;
-        }
-
-        footer p {
-            margin:  0.5rem 0;
+            font-size: 1.5rem;
         }
 
         /* Iconos sociales */
@@ -223,15 +231,15 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin: 1.5rem 0;
+            margin: 1rem 0 1.5rem 0;
         }
 
         .social-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background-color: white;
             border-radius: 50%;
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -239,8 +247,8 @@
         }
 
         .social-icon svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
         }
 
         .social-icon:hover {
@@ -251,6 +259,14 @@
         .social-icon.instagram:hover svg path { fill: var(--instagram); }
         .social-icon.waze:hover svg path { fill: var(--waze); }
         .social-icon.google:hover svg path { fill: var(--google); }
+
+        .footer-line {
+            margin-bottom: 0.5rem;
+        }
+        .separator {
+            margin: 0 8px;
+            color: var(--amarillo-principal);
+        }
 
         /* Botón Flotante WhatsApp */
         .btn-whatsapp {
@@ -290,7 +306,7 @@
             color: var(--cafe);
             border:  none;
             border-radius:  50%;
-            width: 40px; 
+            width: 40px;
             height: 40px;
             font-size:  1.2rem;
             cursor: pointer;
@@ -309,17 +325,17 @@
         .btn-top.show {
             display: block;
         }
-        
-        .lang-en { display: none; }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
-            header p { font-size: 1rem; }
+            header h1 { font-size: 1.5rem; }
             .menu-section h2 { font-size: 1.5rem; }
             .platillos-grid { grid-template-columns: 1fr; }
             nav ul { flex-direction:  column; align-items: center; }
-            nav a { padding: 0.5rem 1rem; font-size: 1rem; }
-            .language-toggle-container { position: static; margin-top: 10px; }
+
+            .footer-line span { display: block; margin-bottom: 5px; }
+            .separator { display: none; }
+
+            .language-toggle-container { position: static; margin-top: 10px; margin-bottom: 10px;}
             .btn-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
             .btn-top { bottom: 85px; right: 28px; }
         }
@@ -331,7 +347,7 @@
         .menu-section { animation: fadeIn 0.6s ease-out; }
     </style>
 </head>
-<body>
+<body class="es">
     <header>
         <div class="language-toggle-container">
             <button class="language-button" id="languageToggle" onclick="toggleLanguage()">
@@ -339,11 +355,11 @@
                 <span class="lang-en">Español</span>
             </button>
         </div>
-        
+
         <div class="logo-container">
             <img src="logo.png" alt="Logo Soda Tita Rosa - Costa Rican Food">
         </div>
-        
+
         <h1 class="lang-es">Soda Tita Rosa</h1>
         <h1 class="lang-en">Soda Tita Rosa</h1>
         <p class="lang-es">Auténtica Comida Costarricense</p>
@@ -377,7 +393,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="rapidas" class="menu-section">
             <h2 class="lang-es">🍔 Comidas Rápidas Estilo Tico</h2>
             <h2 class="lang-en">🍔 Tico-Style Fast Food</h2>
@@ -531,7 +547,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="ensaladas" class="menu-section">
             <h2 class="lang-es">🥗 Ensaladas Frescas</h2>
             <h2 class="lang-en">🥗 Fresh Salads</h2>
@@ -624,9 +640,8 @@
     <footer>
         <h3 class="lang-es">Soda Tita Rosa</h3>
         <h3 class="lang-en">Soda Tita Rosa</h3>
-        
+
         <div class="social-icons">
-            
             <a href="https://www.instagram.com/sodatitarosa?igsh=MTlmMDZia2J4eGFwYg==" class="social-icon instagram" title="Instagram" target="_blank">
                 <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.64-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.27.2-6.78 2.71-6.98 6.98C.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.27 2.71 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07 3.26 0 3.67-.01 4.95-.07 4.27-.2 6.78-2.71 6.98-6.98.06-1.28.07-1.69.07-4.95 0-3.26-.01-3.67-.07-4.95-.2-4.27-2.71-6.78-6.98-6.98C15.67.01 15.26 0 12 0z"/><path fill="#333" d="M12 5.84c-3.4 0-6.16 2.76-6.16 6.16s2.76 6.16 6.16 6.16 6.16-2.76 6.16-6.16-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/><circle fill="#333" cx="18.41" cy="5.59" r="1.44"/></svg>
             </a>
@@ -638,15 +653,26 @@
             </a>
         </div>
 
-        <p class="lang-es">📍 Dirección: La Fortuna de San Carlos, Z13</p>
-        <p class="lang-en">📍 Address: La Fortuna de San Carlos, Z13</p>
-        <p class="lang-es">📞 Teléfono: 63706151 / 44193832</p>
-        <p class="lang-en">📞 Phone: 63706151 / 44193832</p>
-        <p class="lang-es">⏰ Horario: Lunes a Domingo - 10:00 AM a 8:45 PM</p>
-        <p class="lang-en">⏰ Hours: Monday to Sunday - 10:00 AM to 8:45 PM</p>
-        <p class="lang-es">🇨🇷 Auténtica comida costarricense con el sazón de casa</p>
-        <p class="lang-en">🇨🇷 Authentic Costa Rican food with a homemade flavor</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;"><span class="lang-es">© 2025 Soda Tita Rosa - Todos los derechos reservados</span><span class="lang-en">© 2025 Soda Tita Rosa - All rights reserved</span></p>
+        <div class="footer-line">
+            <span class="lang-es">📍 La Fortuna de San Carlos, Z13</span>
+            <span class="lang-en">📍 La Fortuna de San Carlos, Z13</span>
+            <span class="separator">|</span>
+            <span class="lang-es">📞 63706151 / 44193832</span>
+            <span class="lang-en">📞 63706151 / 44193832</span>
+        </div>
+
+        <div class="footer-line">
+            <span class="lang-es">⏰ Lunes a Domingo - 10:00 AM a 8:45 PM</span>
+            <span class="lang-en">⏰ Monday to Sunday - 10:00 AM to 8:45 PM</span>
+        </div>
+
+        <p class="lang-es" style="margin-top: 1rem; font-style: italic;">🇨🇷 Auténtica comida costarricense con el sazón de casa</p>
+        <p class="lang-en" style="margin-top: 1rem; font-style: italic;">🇨🇷 Authentic Costa Rican food with a homemade flavor</p>
+
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">
+            <span class="lang-es">© 2025 Soda Tita Rosa - Todos los derechos reservados</span>
+            <span class="lang-en">© 2025 Soda Tita Rosa - All rights reserved</span>
+        </p>
     </footer>
 
     <a href="https://wa.me/50663706151" class="btn-whatsapp" target="_blank" title="Chat en WhatsApp">
@@ -656,45 +682,35 @@
     <button class="btn-top" id="btnTop" onclick="scrollToTop()">↑</button>
 
     <script>
-        const ES_SELECTOR = '.lang-es';
-        const EN_SELECTOR = '.lang-en';
         const LANGUAGE_KEY = 'menuLang';
 
-        // Función principal para cambiar la visibilidad de los elementos
         function setLanguage(lang) {
+            document.body.className = lang;
+            document.documentElement.lang = lang;
+            const btn = document.getElementById('languageToggle');
             if (lang === 'en') {
-                document.querySelectorAll(ES_SELECTOR).forEach(el => el.style.display = 'none');
-                document.querySelectorAll(EN_SELECTOR).forEach(el => el.style.display = 'inline'); 
-                document.documentElement.lang = 'en';
-                document.getElementById('languageToggle').textContent = 'Español'; 
-                document.getElementById('languageToggle').title = 'Change to Spanish';
+                btn.textContent = 'Español';
+                btn.title = 'Change to Spanish';
             } else {
-                document.querySelectorAll(EN_SELECTOR).forEach(el => el.style.display = 'none');
-                document.querySelectorAll(ES_SELECTOR).forEach(el => el.style.display = 'inline');
-                document.documentElement.lang = 'es';
-                document.getElementById('languageToggle').textContent = 'English'; 
-                document.getElementById('languageToggle').title = 'Cambiar a Inglés';
+                btn.textContent = 'English';
+                btn.title = 'Cambiar a Inglés';
             }
         }
 
-        // Función para alternar el idioma
         function toggleLanguage() {
-            const currentLang = document.documentElement.lang === 'es' ? 'en' : 'es';
+            const currentLang = document.body.className === 'es' ? 'en' : 'es';
             localStorage.setItem(LANGUAGE_KEY, currentLang);
             setLanguage(currentLang);
-            // Asegura que la navegación se mantenga visible después del cambio
             window.scrollTo({
                 top: document.querySelector('nav').offsetTop,
                 behavior: 'smooth'
-            }); 
+            });
         }
 
-        // Cargar idioma al inicio y manejar el scroll
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem(LANGUAGE_KEY) || 'es';
             setLanguage(savedLang);
 
-            // Botón volver arriba
             window.onscroll = function() {
                 const btnTop = document.getElementById('btnTop');
                 if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -704,29 +720,24 @@
                 }
             };
 
-            // Smooth scroll para navegación (Asegura el desplazamiento correcto bajo la barra fija)
             document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    // El desplazamiento debe ir un poco más arriba de la barra de navegación para que el título no quede tapado
-                    const targetPosition = target.offsetTop - navHeight - 10;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    if (target) {
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = target.offsetTop - navHeight - 10;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
 
-
         function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
