@@ -33,8 +33,7 @@
             background-color: #f9f9f9;
         }
 
-        /* --- SISTEMA DE IDIOMAS (BLINDADO) --- */
-        /* Ocultamos el idioma que no se usa */
+        /* --- SISTEMA DE IDIOMAS --- */
         body.es .lang-en { display: none !important; }
         body.en .lang-es { display: none !important; }
 
@@ -75,13 +74,17 @@
             margin: 0.5rem auto 0.2rem;
         }
 
+       /* --- LOGO AJUSTADO (Círculo perfecto) --- */
         .logo-container img {
             width: 100%;
-            height: auto;
+            /* height: auto;  <-- ESTA LÍNEA LA BORRAMOS */
+            aspect-ratio: 1 / 1; /* <-- AGREGAMOS ESTO: Fuerza un cuadrado */
+            object-fit: cover;   /* <-- AGREGAMOS ESTO: Evita que se estire */
             border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 1px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
+
 
         header h1 {
             font-size: 1.6rem;
@@ -183,12 +186,11 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        /* CORRECCIÓN FUERTE PARA QUE NO SE PEGUEN LOS TEXTOS */
         .platillo-card h3 {
             color: var(--cafe);
             font-size: 1.3rem;
-            margin-bottom:  0.8rem !important; /* Fuerza el espacio */
-            display: block !important; /* Fuerza que ocupe su propia línea */
+            margin-bottom:  0.8rem !important;
+            display: block !important;
             width: 100%;
         }
 
@@ -197,7 +199,7 @@
             margin-top: 0.5rem;
             margin-bottom: 0.8rem;
             font-size: 0.95rem;
-            display: block !important; /* Fuerza que ocupe su propia línea */
+            display: block !important;
         }
 
         .precio {
@@ -210,7 +212,7 @@
             margin-left: 0;
         }
 
-        /* Footer Actualizado y Estético */
+        /* Footer Actualizado */
         footer {
             background-color: var(--cafe);
             color: white;
@@ -646,7 +648,7 @@
                 <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.64-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.27.2-6.78 2.71-6.98 6.98C.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.27 2.71 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07 3.26 0 3.67-.01 4.95-.07 4.27-.2 6.78-2.71 6.98-6.98.06-1.28.07-1.69.07-4.95 0-3.26-.01-3.67-.07-4.95-.2-4.27-2.71-6.78-6.98-6.98C15.67.01 15.26 0 12 0z"/><path fill="#333" d="M12 5.84c-3.4 0-6.16 2.76-6.16 6.16s2.76 6.16 6.16 6.16 6.16-2.76 6.16-6.16-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/><circle fill="#333" cx="18.41" cy="5.59" r="1.44"/></svg>
             </a>
             <a href="#" class="social-icon waze" title="Ubicación" target="_blank">
-                <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5z"/></svg>
             </a>
             <a href="https://g.page/r/CZE1rQ05TjVLEAE/review" class="social-icon google" title="Califícanos en Google" target="_blank">
                 <svg viewBox="0 0 24 24"><path fill="#333" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .533 5.333.533 12S5.867 24 12.48 24c3.44 0 6.013-1.133 8.053-3.24 2.14-2.16 2.773-5.2 2.773-7.84 0-.76-.067-1.467-.187-2l-10.64-.001z"/></svg>
