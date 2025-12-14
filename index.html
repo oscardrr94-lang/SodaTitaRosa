@@ -33,20 +33,20 @@
             background-color: #f9f9f9;
         }
 
-        /* --- SISTEMA DE IDIOMAS --- */
+        /* --- SISTEMA DE IDIOMAS (BLINDADO) --- */
         body.es .lang-en { display: none !important; }
         body.en .lang-es { display: none !important; }
 
-        /* Header Ajustado (Más compacto) */
+        /* Header Ajustado */
         header {
             background: linear-gradient(135deg, var(--amarillo-principal) 0%, #FFD700 100%);
             text-align: center;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1rem; 
             box-shadow:  0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
+            position: relative; 
             z-index: 100;
         }
-
+        
         .language-toggle-container {
             position: absolute;
             top: 10px;
@@ -70,37 +70,36 @@
         }
 
         .logo-container {
-            max-width:  100px;
+            max-width:  100px; 
             margin: 0.5rem auto 0.2rem;
         }
 
-       /* --- LOGO AJUSTADO (Círculo perfecto) --- */
+        /* --- LOGO FINAL (Circular y Nítido) --- */
         .logo-container img {
             width: 100%;
-            /* height: auto;  <-- ESTA LÍNEA LA BORRAMOS */
-            aspect-ratio: 1 / 1; /* <-- AGREGAMOS ESTO: Fuerza un cuadrado */
-            object-fit: cover;   /* <-- AGREGAMOS ESTO: Evita que se estire */
+            aspect-ratio: 1 / 1; /* Fuerza forma cuadrada */
+            object-fit: contain; /* Evita que se pixelee o estire */
             border-radius: 50%;
-            border: 1px solid white;
+            border: 2px solid white;
+            background-color: var(--amarillo-principal); /* Fondo por si la imagen no es cuadrada */
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-
         header h1 {
-            font-size: 1.6rem;
+            font-size: 1.6rem; 
             color: var(--cafe);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            display: block;
-            margin-bottom: 0;
+            display: block; 
+            margin-bottom: 0; 
             line-height: 1.2;
         }
 
         header p {
-            font-size:  0.95rem;
+            font-size:  0.95rem; 
             color: var(--verde-oscuro);
             font-style: italic;
-            display: block;
-            margin-top: 0.2rem;
+            display: block; 
+            margin-top: 0.2rem; 
             margin-bottom: 0.5rem;
         }
 
@@ -110,7 +109,7 @@
             padding: 0.8rem;
             position: sticky;
             top: 0;
-            z-index: 999;
+            z-index: 999; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -186,6 +185,7 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
+        /* TÍTULOS Y TEXTOS (Espaciado forzado) */
         .platillo-card h3 {
             color: var(--cafe);
             font-size: 1.3rem;
@@ -196,20 +196,20 @@
 
         .platillo-card p {
             color: #555;
-            margin-top: 0.5rem;
+            margin-top: 0.5rem; 
             margin-bottom: 0.8rem;
             font-size: 0.95rem;
             display: block !important;
         }
 
         .precio {
-            display: block;
+            display: block; 
             text-align: left;
             font-size: 1.3rem;
             font-weight:  bold;
             color: var(--verde-oscuro);
             margin-top: 0.5rem;
-            margin-left: 0;
+            margin-left: 0; 
         }
 
         /* Footer Actualizado */
@@ -217,7 +217,7 @@
             background-color: var(--cafe);
             color: white;
             text-align: center;
-            padding: 2rem 1rem 5rem 1rem;
+            padding: 2rem 1rem 5rem 1rem; 
             margin-top: 3rem;
             font-size: 0.95rem;
         }
@@ -308,7 +308,7 @@
             color: var(--cafe);
             border:  none;
             border-radius:  50%;
-            width: 40px;
+            width: 40px; 
             height: 40px;
             font-size:  1.2rem;
             cursor: pointer;
@@ -333,10 +333,10 @@
             .menu-section h2 { font-size: 1.5rem; }
             .platillos-grid { grid-template-columns: 1fr; }
             nav ul { flex-direction:  column; align-items: center; }
-
+            
             .footer-line span { display: block; margin-bottom: 5px; }
             .separator { display: none; }
-
+            
             .language-toggle-container { position: static; margin-top: 10px; margin-bottom: 10px;}
             .btn-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
             .btn-top { bottom: 85px; right: 28px; }
@@ -357,11 +357,11 @@
                 <span class="lang-en">Español</span>
             </button>
         </div>
-
+        
         <div class="logo-container">
             <img src="logo.png" alt="Logo Soda Tita Rosa - Costa Rican Food">
         </div>
-
+        
         <h1 class="lang-es">Soda Tita Rosa</h1>
         <h1 class="lang-en">Soda Tita Rosa</h1>
         <p class="lang-es">Auténtica Comida Costarricense</p>
@@ -395,7 +395,7 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="rapidas" class="menu-section">
             <h2 class="lang-es">🍔 Comidas Rápidas Estilo Tico</h2>
             <h2 class="lang-en">🍔 Tico-Style Fast Food</h2>
@@ -549,7 +549,7 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="ensaladas" class="menu-section">
             <h2 class="lang-es">🥗 Ensaladas Frescas</h2>
             <h2 class="lang-en">🥗 Fresh Salads</h2>
@@ -642,13 +642,13 @@
     <footer>
         <h3 class="lang-es">Soda Tita Rosa</h3>
         <h3 class="lang-en">Soda Tita Rosa</h3>
-
+        
         <div class="social-icons">
             <a href="https://www.instagram.com/sodatitarosa?igsh=MTlmMDZia2J4eGFwYg==" class="social-icon instagram" title="Instagram" target="_blank">
                 <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.64-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.27.2-6.78 2.71-6.98 6.98C.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.27 2.71 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07 3.26 0 3.67-.01 4.95-.07 4.27-.2 6.78-2.71 6.98-6.98.06-1.28.07-1.69.07-4.95 0-3.26-.01-3.67-.07-4.95-.2-4.27-2.71-6.78-6.98-6.98C15.67.01 15.26 0 12 0z"/><path fill="#333" d="M12 5.84c-3.4 0-6.16 2.76-6.16 6.16s2.76 6.16 6.16 6.16 6.16-2.76 6.16-6.16-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/><circle fill="#333" cx="18.41" cy="5.59" r="1.44"/></svg>
             </a>
             <a href="#" class="social-icon waze" title="Ubicación" target="_blank">
-                <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5z"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="#333" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </a>
             <a href="https://g.page/r/CZE1rQ05TjVLEAE/review" class="social-icon google" title="Califícanos en Google" target="_blank">
                 <svg viewBox="0 0 24 24"><path fill="#333" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .533 5.333.533 12S5.867 24 12.48 24c3.44 0 6.013-1.133 8.053-3.24 2.14-2.16 2.773-5.2 2.773-7.84 0-.76-.067-1.467-.187-2l-10.64-.001z"/></svg>
@@ -662,7 +662,7 @@
             <span class="lang-es">📞 63706151 / 44193832</span>
             <span class="lang-en">📞 63706151 / 44193832</span>
         </div>
-
+        
         <div class="footer-line">
             <span class="lang-es">⏰ Lunes a Domingo - 10:00 AM a 8:45 PM</span>
             <span class="lang-en">⏰ Monday to Sunday - 10:00 AM to 8:45 PM</span>
@@ -670,7 +670,7 @@
 
         <p class="lang-es" style="margin-top: 1rem; font-style: italic;">🇨🇷 Auténtica comida costarricense con el sazón de casa</p>
         <p class="lang-en" style="margin-top: 1rem; font-style: italic;">🇨🇷 Authentic Costa Rican food with a homemade flavor</p>
-
+        
         <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">
             <span class="lang-es">© 2025 Soda Tita Rosa - Todos los derechos reservados</span>
             <span class="lang-en">© 2025 Soda Tita Rosa - All rights reserved</span>
@@ -691,10 +691,10 @@
             document.documentElement.lang = lang;
             const btn = document.getElementById('languageToggle');
             if (lang === 'en') {
-                btn.textContent = 'Español';
+                btn.textContent = 'Español'; 
                 btn.title = 'Change to Spanish';
             } else {
-                btn.textContent = 'English';
+                btn.textContent = 'English'; 
                 btn.title = 'Cambiar a Inglés';
             }
         }
@@ -706,7 +706,7 @@
             window.scrollTo({
                 top: document.querySelector('nav').offsetTop,
                 behavior: 'smooth'
-            });
+            }); 
         }
 
         document.addEventListener('DOMContentLoaded', () => {
